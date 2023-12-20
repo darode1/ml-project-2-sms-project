@@ -38,18 +38,41 @@ This will:
 * Split the dataset into unbiased train and test sets. 20% of participants are taken in test set.
 * Perform data augmentation of train set to rebalance the train set, and make it robut to noisy data.
 
+External libraries used:
+* Numpy
+* Pandas (for preprocessing purposes)
+* Seaborn/Matplotlib (for plotting purposes) 
+
 
 ### Model for predicting exercises
 
 
 ### Our best model for predicting error sets
 
+
 ### CNNs
 
-### RNN
+
+### RNN/LSTM
+
+For training this result, you will need to download "train_set_less_noisy.parquet". This is a similar version of the previous train set but with less noise on new inputs when performing data augmentation (to reproduce it, you can redo step 1 on preprocessing, but by changing noise_std variable to 0.01). Indeed, by crossvalidating, we found out that LSTM was less accurate when trained on data that was augmented with a lot of noise.
+
+To reproduce this model:
+* Replace train_path variable by the path of "train_set_less_noisy.parquet", and the test path by "test_set.parquet".
+* Run the notebook, the test accuracy will be printed in the last cell.
+
+External libraries used:
+* Numpy
+* Pandas (for reading our datas and performing minor processing)
+* Keras (used for modeling the LSTM model, saved a lot of coding time) 
+
 
 ### Decision trees
 
 ## Ethical study
 
-## Contributions
+## Contributors
+
+- Baptiste Maquignaz [Baptiste-ic](https://github.com/Baptiste-ic)
+- Garik Sahakyan [garikSahakayan](https://github.com/garikSahakayan)
+- Rami Atassi [RamiATASSI](https://github.com/RamiATASSI)
