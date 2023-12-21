@@ -11,18 +11,18 @@ There are three main goals in the project. The first being to correctly guess th
 
 The repository is organized as follows. You can find descriptions of each section below.
 * A notebook folder, where you will find all notebooks described below.
-* A model folder, where you will find the main trained models
+* A pre-trained models folder named paths, where you will find the main trained models
 * A helpers.py with few methods to make notebooks clearer.
 
 ## Downloads
 
 If you want to reproduce our results, you can download the following datasets through the link. There is no need to download everything at once, instead you can download each parquet file independently, depending of what you want to reproduce (more will be told on what to download below).
 
-Download link: https://mega.nz/folder/VhsjCASI#9hjhq6UmYEEGNUsl12ZThg
+Download link: https://mega.nz/folder/FkN2ySja#hEjILHeuDQhaW9Rt2g5jkg
 
 ## Reproducing the models
 
-We will describe how to reproduce each of our results for each method. If you are only interested in our best result, you can only follow the first three subsections.
+We will describe how to reproduce our results for the main models. If you are only interested in our best result, you can ignore the following subsections: Other MLP models, CNNs, RNN/LSTM and Decision trees.
 
 ### Preprocessing
 
@@ -64,6 +64,16 @@ For the second task, we created a model called PhysioMLP. To reproduce it:
 * If you want to simply evaluate our model and not retrain it, set "train_eval" variable to False. If you want to retrain our model, set it to True.
 * Set "is_augmented" to False if you want to train our model without data augmentation in train set. (if you want to reproduce our results, keep it as True)
 * Run every cell contained in "First section" and in "Training the model to predict sets" section. This will print the accuracy, or train the model, depending on the variable "train_eval" that you set before.
+
+#### Other MLP models
+
+In this section we have many other MLP models that we tested, to reproduce them:
+* Open MLP_training.ipynb notebook
+* Change the train_path and test_path variables with your own paths of "test_set.parquet" and "train_set_augmented.parquet".
+* If you want to train on non-augmented data, you should change is_augmented to False. Otherwise, don't touch it.
+* Depending of what MLP model you want to train, you might need to change the model variable with your desired MLP model.
+* Run every cell, and it will train the model.
+
 
 
 #### CNNs
