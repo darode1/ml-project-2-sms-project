@@ -42,6 +42,7 @@ This will:
 
 
 ### Exercise predictions
+For the first task of predicting exercises 
 
 
 ### Error set predictions
@@ -53,7 +54,9 @@ This will:
 #### CNNs
 
 To reproduce this model:
+* Open CNN_training.ipynb notebook
 * Change the train_path and test_path variables with your own paths of "test_set.parquet" and "train_set_augmented.parquet".
+* If you want to train on non-augmented data, you should change is_augmented to False. Otherwise, don't touch it.
 * Depending of what CNN model you want to train, you might need to change the model variable from get_cnn2b() to get_cnn3b()
 * Run every cell, and it will train the model.
 
@@ -62,7 +65,7 @@ To reproduce this model:
 
 To reproduce this model:
 * Open RNN_LSTM.ipynb notebook
-* Replace train_path variable by the path of "train_set_augmented.parquet", and the test path by "test_set.parquet".
+* Replace train_path variable by the path for "train_set_augmented.parquet", and the test path by "test_set.parquet".
 * Run the notebook, the test accuracy will be printed in the last cell.
 
 
