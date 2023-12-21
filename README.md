@@ -1,11 +1,14 @@
 # Enhancing Home Physiotherapy: Machine Learning for Exercise Recognition and Error Detection
 
-Our project builds upon David Rode’s research in Markerless Motion Capturing and Pose Estimation for therapeutic
-applications.
+## Project Overview
 
-## Project Description
+Building upon David Rode’s research in Markerless Motion Capturing and Pose Estimation for therapeutic applications.
 
-There are three main goals in the project. The first being to correctly guess the performed exercises based on joints positions moving over time. The second being to detect potential mistakes in the executions of these exercises. The mistakes are called "Set" in our dataset, because they correspond to sets of mistakes per exercise. The third goal is to investigate influencing factors on prediction errors.
+### Project Goals
+
+1. Correctly guess performed exercises based on joint positions over time.
+2. Detect potential mistakes in exercise executions.
+3. Investigate influencing factors on prediction errors.
 
 ## Project structure
 
@@ -14,13 +17,12 @@ The repository is organized as follows. You can find descriptions of each sectio
 * A pre-trained models folder named paths, where you will find the main trained models
 * A helpers.py with few methods to make notebooks clearer.
 
+
 ## Downloads
 
-If you want to reproduce our results, you can download the following datasets through the link. There is no need to download everything at once, instead you can download each parquet file independently, depending of what you want to reproduce (more will be told on what to download below).
+Reproduce results by downloading datasets from [this link](https://mega.nz/folder/x58iACqb#EciOgNhfLUL30SUhvxe6gw).
 
-Download link: https://mega.nz/folder/FkN2ySja#hEjILHeuDQhaW9Rt2g5jkg
-
-## Reproducing the models
+## Reproducing the Models
 
 We will describe how to reproduce our results for the main models. If you are only interested in our best result, you can ignore the following subsections: Other MLP models, CNNs, RNN/LSTM and Decision trees.
 
@@ -28,10 +30,9 @@ We will describe how to reproduce our results for the main models. If you are on
 
 If you want to reproduce our preprocessing, you should download the file "dataset.parquet", and follow the steps of this section. Otherwise you can directly download the preprocessed datasets called "train_set_augmented.parquet" & "test_set.parquet".
 
-To reproduce our preprocessing:
-* Open the notebook preprocessing.ipynb
-* Change the local_path variable to the path of "dataset.parquet"
-* Run every cell
+- Open the notebook **preprocessing.ipynb**.
+- Change the `local_path` variable to the path of **dataset.parquet.**
+- Run every cell
 
 This will:
 * Crop first 2 seconds of each video, and last second of the videos.
@@ -40,79 +41,84 @@ This will:
 * Split the dataset into unbiased train and test sets. 20% of participants are taken in test set.
 * Perform data augmentation of train set to rebalance the train set, and make it robut to noisy data.
 
-
 ### Exercise predictions
 For this part, you will need to download "test_set.parquet" and "train_set_augmented.parquet".
 
 For the first task of predicting exercises, we used mlp3x256. To reproduce it:
-* Open Main_model.ipynb notebook
-* Change train_path to your own path containing "train_set_augmented.parquet" and change test_path to your own path containing "test_set.parquet".
-* If you want to simply evaluate our model and not retrain it, set "train_eval" variable to False. If you want to retrain our model, set it to True.
-* Set "is_augmented" to False if you want to train our model without data augmentation in train set.
-* Run every cell contained in "First section" and in "Training the model to predict exercises" section. This will print the accuracy, or train the model, depending on the variable "train_eval" that you set before.
+- Open **Main_model.ipynb**.
+- Change `train_path` and `test_path` to your path to **train_set_augmented.parquet** and **test_set.parquet**, respectively.
+- Set `train_eval` to True for retraining, False for evaluation.
+- Set `is_augmented` to False if you want to train our model without data augmentation in train set.
+- Run cells in "First section" and "Training the model to predict _*exercises*_ to train or evaluate (print accuracies)
 
+### Error Set Predictions
 
-
-### Error set predictions
-
-
-#### PhysioMLP - Our best model for predicting error sets
+#### PhysioMLP - Best Model
 
 For the second task, we created a model called PhysioMLP. To reproduce it:
-* Open Main_model.ipynb notebook
-* Change train_path to your own path containing "train_set_augmented.parquet" and change test_path to your own path containing "test_set.parquet".
-* If you want to simply evaluate our model and not retrain it, set "train_eval" variable to False. If you want to retrain our model, set it to True.
-* Set "is_augmented" to False if you want to train our model without data augmentation in train set. (if you want to reproduce our results, keep it as True)
-* Run every cell contained in "First section" and in "Training the model to predict sets" section. This will print the accuracy, or train the model, depending on the variable "train_eval" that you set before.
+- Open **Main_model.ipynb**.
+- Change `train_path` and `test_path` to your path to **train_set_augmented.parquet** and **test_set.parquet**, respectively.
+- Set `train_eval` to True for retraining, False for evaluation.
+- Set `is_augmented` to False if you want to train our model without data augmentation in train set.
+- Run cells in "First section" and "Training the model to predict _*sets*_" to train or evaluate (print accuracies)
+
 
 #### Other MLP models
 
 In this section we have many other MLP models that we tested, to reproduce them:
-* Open MLP_training.ipynb notebook
-* Change the train_path and test_path variables with your own paths of "test_set.parquet" and "train_set_augmented.parquet".
-* If you want to train on non-augmented data, you should change is_augmented to False. Otherwise, don't touch it.
-* Depending of what MLP model you want to train, you might need to change the model variable with your desired MLP model.
-* Run every cell, and it will train the model.
+- Open **MLP_training.ipynb**.
+- Change `train_path` and `test_path` to your path to **train_set_augmented.parquet** and **test_set.parquet**, respectively.
+- Set `is_augmented` to False if you want to train our model without data augmentation in train set.
+- Depending on what MLP model you want to train, you might need to change the model variable with your desired MLP model.
+- Run every cell, and it will train the model.
 
-
-
-#### CNNs
+##### CNNs
 
 To reproduce this model:
-* Open CNN_training.ipynb notebook
-* Change the train_path and test_path variables with your own paths of "test_set.parquet" and "train_set_augmented.parquet".
-* If you want to train on non-augmented data, you should change is_augmented to False. Otherwise, don't touch it.
-* Depending of what CNN model you want to train, you might need to change the model variable from get_cnn2b() to get_cnn3b()
-* Run every cell, and it will train the model.
-
+- Open **CNN_training.ipynb**.
+- Change `train_path` and `test_path` to your path to **train_set_augmented.parquet** and **test_set.parquet**, respectively.
+- Set `is_augmented` to False if you want to train our model without data augmentation in train set.
+- Depending on what CNN model you want to train, you might need to change the model variable from get_cnn2b() to get_cnn3b()
+- Run every cell, and it will train the model.
 
 #### RNN/LSTM
 
 To reproduce this model:
-* Open RNN_LSTM.ipynb notebook
-* Replace train_path variable by the path for "train_set_augmented.parquet", and the test path by "test_set.parquet".
-* Run the notebook, the test accuracy will be printed in the last cell.
+- Open **RNN_LSTM.ipynb**.
+- Change `train_path` and `test_path` to your path to **train_set_augmented.parquet** and **test_set.parquet**, respectively.
+- Run the notebook, the test accuracy will be printed in the last cell.
 
+#### Random Forest
 
-#### Decision trees
+To reproduce this model:
+- Open **Random_Forest.ipynb**.
+- Change `prep_path` to your path to **prep_dataset.parquet**.
+- Change `train_path` and `test_path` to your path to **train_set_augmented.parquet** and **test_set.parquet**, respectively.
+- Run cells in "Import and paths" and "Machine Learning" to both train and evaluate the model
 
-### Ethical study
+#### Ethical Study
 
 To reproduce the results of this part, you will need to download "slow_test.parquet", "fast_test.parquet" and "ethics.path"
 
-* Open the ethics_MLP.ipynb notebook
-* Change paths of test_path to the test path, train_path to augmented train path, test_slow_path and test_fast_path to the paths of the newly downloaded parquet files.
-* Run every cell, accuracies will be displayed at the end.
+- Open **ethics_MLP.ipynb**.
+- Change paths for ethical study.
+- Run every cell for displaying accuracies.
 
-### External libraries used:
-* Numpy
-* Pandas (for reading our datas and performing minor processing)
-* Seaborn/Matplotlib (for plotting purposes) 
-* Torch (for modeling neural networks)
-* Keras (used for modeling the LSTM model, saved a lot of coding time) 
+## External Libraries Used
+
+| Library       | Version | Purpose                    |
+|---------------|---------|----------------------------|
+| Numpy         | 1.25.2  | Algebra                    |
+| Pandas        | 2.0.3   | Data Manipulation          |
+| Seaborn       | 0.12.2  | Plot                       |
+| Matplotlib    | 3.7.2   | Plot                       |
+| PyTorch       | 2.0.1   | Neural Networks            |
+| Keras         | 2.10.0  | LSTM Model                 |
+| Scikit-learn  | 1.3.0   | Random Forest and ML Classics|
+
 
 ## Contributors
 
-- Baptiste Maquignaz [Baptiste-ic](https://github.com/Baptiste-ic)
-- Garik Sahakyan [garikSahakayan](https://github.com/garikSahakayan)
-- Rami Atassi [RamiATASSI](https://github.com/RamiATASSI)
+- [Baptiste Maquignaz](https://github.com/Baptiste-ic)
+- [Garik Sahakyan](https://github.com/garikSahakayan)
+- [Rami Atassi](https://github.com/RamiATASSI)
