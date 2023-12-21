@@ -96,11 +96,10 @@ To reproduce the results of this part, you will need to download "slow_test.parq
 
 ### External libraries used:
 * Numpy
-* Pandas - data manipulation
-* Seaborn/Matplotlib - plotting
-* Torch - neural networks
-* Keras - LSTM model
-* Sklearn - Random forest and ML classics
+* Pandas (for reading our datas and performing minor processing)
+* Seaborn/Matplotlib (for plotting purposes) 
+* Torch (for modeling neural networks)
+* Keras (used for modeling the LSTM model, saved a lot of coding time) 
 
 ## Contributors
 
