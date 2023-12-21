@@ -14,7 +14,7 @@ Building upon David Rode’s research in Markerless Motion Capturing and Pose Es
 
 The repository is organized as follows. You can find descriptions of each section below.
 * The core project with **preprocessing.ipynb**,  **Main_model.ipynb** and **ethics_MLP.ipynb**
-* A folder with notebooks for each remaining model (take them out of the folder before using)
+* Folder **Other_models** with notebooks for each remaining model (take them out of the folder before using)
 * Folder **paths** where you will find the main trained models
 * A helpers.py with few methods to make notebooks clearer.
 
