@@ -44,21 +44,23 @@ External libraries used:
 * Seaborn/Matplotlib (for plotting purposes) 
 
 
-### Model for predicting exercises
+### Exercise predictions
 
 
-### Our best model for predicting error sets
+### Error set predictions
 
 
-### CNNs
+#### Our best model for predicting error sets
 
 
-### RNN/LSTM
+#### CNNs
 
-For training this result, you will need to download "train_set_less_noisy.parquet". This is a similar version of the previous train set but with less noise on new inputs when performing data augmentation (to reproduce it, you can redo step 1 on preprocessing, but by changing noise_std variable to 0.01). Indeed, by crossvalidating, we found out that LSTM was less accurate when trained on data that was augmented with a lot of noise.
+
+#### RNN/LSTM
 
 To reproduce this model:
-* Replace train_path variable by the path of "train_set_less_noisy.parquet", and the test path by "test_set.parquet".
+* Open RNN_LSTM.ipynb notebook
+* Replace train_path variable by the path of "train_set_augmented.parquet", and the test path by "test_set.parquet".
 * Run the notebook, the test accuracy will be printed in the last cell.
 
 External libraries used:
@@ -67,9 +69,16 @@ External libraries used:
 * Keras (used for modeling the LSTM model, saved a lot of coding time) 
 
 
-### Decision trees
+#### Decision trees
 
-## Ethical study
+### Ethical study
+
+To reproduce the results of this part, you will need to download "slow_test.parquet", "fast_test.parquet" and "ethics.path"
+
+* Open the ethics_MLP.ipynb notebook
+* Start by changing the paths of model_path to the path of ethics.path
+* Change paths of test_path to the test path, train_path to augmented train path, test_slow_path and test_fast_path to the paths of the newly downloaded csv.
+* Run every cell, accuracies will be displayed at the end.
 
 ## Contributors
 
