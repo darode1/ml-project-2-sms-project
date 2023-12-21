@@ -42,13 +42,28 @@ This will:
 
 
 ### Exercise predictions
-For the first task of predicting exercises 
+For this part, you will need to download "test_set.parquet" and "train_set_augmented.parquet".
+
+For the first task of predicting exercises, we used mlp3x256. To reproduce it:
+* Open Main_model.ipynb notebook
+* Change train_path to your own path containing "train_set_augmented.parquet" and change test_path to your own path containing "test_set.parquet".
+* If you want to simply evaluate our model and not retrain it, set "train_eval" variable to False. If you want to retrain our model, set it to True.
+* Set "is_augmented" to False if you want to train our model without data augmentation in train set.
+* Run every cell contained in "First section" and in "Training the model to predict exercises" section. This will print the accuracy, or train the model, depending on the variable "train_eval" that you set before.
+
 
 
 ### Error set predictions
 
 
-#### Our best model for predicting error sets
+#### PhysioMLP - Our best model for predicting error sets
+
+For the second task, we created a model called PhysioMLP. To reproduce it:
+* Open Main_model.ipynb notebook
+* Change train_path to your own path containing "train_set_augmented.parquet" and change test_path to your own path containing "test_set.parquet".
+* If you want to simply evaluate our model and not retrain it, set "train_eval" variable to False. If you want to retrain our model, set it to True.
+* Set "is_augmented" to False if you want to train our model without data augmentation in train set. (if you want to reproduce our results, keep it as True)
+* Run every cell contained in "First section" and in "Training the model to predict sets" section. This will print the accuracy, or train the model, depending on the variable "train_eval" that you set before.
 
 
 #### CNNs
@@ -76,8 +91,7 @@ To reproduce this model:
 To reproduce the results of this part, you will need to download "slow_test.parquet", "fast_test.parquet" and "ethics.path"
 
 * Open the ethics_MLP.ipynb notebook
-* Start by changing the paths of model_path to the path of ethics.path
-* Change paths of test_path to the test path, train_path to augmented train path, test_slow_path and test_fast_path to the paths of the newly downloaded csv.
+* Change paths of test_path to the test path, train_path to augmented train path, test_slow_path and test_fast_path to the paths of the newly downloaded parquet files.
 * Run every cell, accuracies will be displayed at the end.
 
 ### External libraries used:
