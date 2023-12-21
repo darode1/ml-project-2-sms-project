@@ -15,7 +15,8 @@ Building upon David Rode’s research in Markerless Motion Capturing and Pose Es
 The repository is organized as follows. You can find descriptions of each section below.
 * A pre-trained models folder named paths, where you will find the main trained models
 * A helpers.py with few methods to make notebooks clearer.
-* All notebooks used for training different models.
+* The **preprocessing.ipynb**,  **Main_model.ipynb** and **ethics_MLP.ipynb**
+* A folder with all remaining notebook for each model (take them out of the folder before using)
 
 
 
@@ -29,7 +30,7 @@ We will describe how to reproduce our results for the main models. If you are on
 
 ### Preprocessing
 
-If you want to reproduce our preprocessing, you should download the file "dataset.parquet", and follow the steps of this section. Otherwise you can directly download the preprocessed datasets called "train_set_augmented.parquet" & "test_set.parquet".
+If you want to reproduce our preprocessing, you should download the file **dataset.parquet**, and follow the steps of this section. Otherwise you can directly download the preprocessed datasets called **train_set_augmented.parquet** & **test_set.parquet**.
 
 - Open the notebook **preprocessing.ipynb**.
 - Change the `local_path` variable to the path of **dataset.parquet.**
@@ -43,7 +44,7 @@ This will:
 * Perform data augmentation of train set to rebalance the train set, and make it robut to noisy data.
 
 ### Exercise predictions
-For this part, you will need to download "test_set.parquet" and "train_set_augmented.parquet".
+For this part, you will need to download **test_set.parquet** and **train_set_augmented.parquet**.
 
 For the first task of predicting exercises, we used mlp3x256. To reproduce it:
 - Open **Main_model.ipynb**.
@@ -99,7 +100,7 @@ To reproduce this model:
 
 #### Ethical Study
 
-To reproduce the results of this part, you will need to download "slow_test.parquet", "fast_test.parquet".
+To reproduce the results of this part, you will need to download **slow_test.parquet**, **fast_test.parquet**.
 
 - Open **ethics_MLP.ipynb**.
 - Change paths for ethical study.
