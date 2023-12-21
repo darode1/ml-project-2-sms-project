@@ -13,9 +13,10 @@ Building upon David Rode’s research in Markerless Motion Capturing and Pose Es
 ## Project structure
 
 The repository is organized as follows. You can find descriptions of each section below.
-* A notebook folder, where you will find all notebooks described below.
 * A pre-trained models folder named paths, where you will find the main trained models
 * A helpers.py with few methods to make notebooks clearer.
+* All notebooks used for training different models.
+
 
 
 ## Downloads
@@ -98,7 +99,7 @@ To reproduce this model:
 
 #### Ethical Study
 
-To reproduce the results of this part, you will need to download "slow_test.parquet", "fast_test.parquet" and "ethics.path"
+To reproduce the results of this part, you will need to download "slow_test.parquet", "fast_test.parquet".
 
 - Open **ethics_MLP.ipynb**.
 - Change paths for ethical study.
